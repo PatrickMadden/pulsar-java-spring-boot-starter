@@ -53,11 +53,11 @@ public class ConsumerBuilder {
                         consumer.acknowledge(msg);
                     } catch (Exception e) {
                         consumer.negativeAcknowledge(msg);
-                        throw new RuntimeException("TODO Custom Exception!", e);
+                        throw new RuntimeException(e.getMessage(), e);
                     }
                 }).subscribe();
         } catch (PulsarClientException e) {
-            throw new RuntimeException("TODO Custom Exception!", e);
+            throw new RuntimeException(e.getMessage(), e);
         }
     }
 
