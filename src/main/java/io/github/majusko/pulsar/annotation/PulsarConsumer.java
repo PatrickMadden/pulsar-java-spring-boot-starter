@@ -1,5 +1,7 @@
 package io.github.majusko.pulsar.annotation;
 
+import org.apache.pulsar.client.api.SubscriptionType;
+
 import io.github.majusko.pulsar.constant.Serialization;
 
 import java.lang.annotation.ElementType;
@@ -13,4 +15,5 @@ public @interface PulsarConsumer {
     String topic();
     Class<?> clazz();
     Serialization serialization() default Serialization.JSON;
+	SubscriptionType subscriptionType() default SubscriptionType.Exclusive;
 }
